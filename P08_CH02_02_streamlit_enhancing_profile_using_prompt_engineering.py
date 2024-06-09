@@ -37,7 +37,7 @@ def generate_intro(api_key, name, age, gender, major, location, bio):
     return out['intro_list']
 
 # 앱 제목 설정
-st.title('🖋️ 매력적 인사말 생성기')
+st.title('🖋️ 매력적인 인사말 생성기')
 
 # OpenAI API 키 입력
 api_key = st.text_input("OpenAI API Key", type="password")
