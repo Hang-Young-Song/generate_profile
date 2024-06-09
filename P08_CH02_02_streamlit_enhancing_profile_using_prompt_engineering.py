@@ -12,7 +12,6 @@ class InstroList(BaseModel):
     intro_list: List[str] = Field(description="소개팅 인사말 후보 리스트")
 
 def generate_intro(api_key, name, age, gender, major, location, bio):
-    st.write(f"API Key: {api_key}")  # 디버깅을 위해 API 키 출력 (생산 환경에서는 제거)
     model = ChatOpenAI(model="gpt-4-turbo-preview", temperature=1.0, openai_api_key=api_key)
     parser = JsonOutputParser(pydantic_object=InstroList)
     format_instructions = parser.get_format_instructions()
@@ -38,7 +37,7 @@ def generate_intro(api_key, name, age, gender, major, location, bio):
     return out['intro_list']
 
 # 앱 제목 설정
-st.title('🖋️ 멋진 인사말 생성기')
+st.title('🖋️ 매력적 인사말 생성기')
 
 # OpenAI API 키 입력
 api_key = st.text_input("OpenAI API Key", type="password")
